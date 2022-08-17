@@ -7,11 +7,6 @@ import Form from '../Form/Form';
 import Filter from '../Filter/Filter';
 import ContactList from '../ContactList/ContactList';
 
-// { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-// { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-// { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-// { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-
 const App = () => {
   const phonebook = [
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -22,12 +17,13 @@ const App = () => {
   const [contacts, setContancts] = useState(phonebook);
   const [filter, setFilter] = useState('');
 
-  const formSubmitData = ({ name, number }) => {
+  const formSubmitData = (name, number) => {
     const subData = {
       id: nanoid(),
       name,
       number,
     };
+
     if (contacts.find(contact => contact.name === subData.name)) {
       return alert(`${subData.name} is already in contact list`);
     }
